@@ -1,6 +1,6 @@
 package com.epam.pages;
 
-import com.epam1.core.MyWebDriver;
+import com.epam.core.MyWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
