@@ -20,7 +20,7 @@ public class LoginAndSettingsBlock extends HtmlElement{
     private Link loginLink;
 
     public void getLoginForm(){
-        loginLink.click();
+         loginLink.click();
     }
 
     public void setRussianLang(){
@@ -29,5 +29,10 @@ public class LoginAndSettingsBlock extends HtmlElement{
 
     public void setUkrLang(){
         ukrLang.click();
+    }
+
+    public void login(String email, String pass){
+        getLoginForm();
+        loginForm.login(email, pass);
     }
 }

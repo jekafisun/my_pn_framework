@@ -1,12 +1,11 @@
 package com.epam.pages;
 
-import com.epam1.core.MyWebDriver;
-import com.epam1.pages.CartPage;
-import com.epam1.pages.DniproHomePage;
-import com.epam1.pages.HomePage;
-import com.epam1.pages.SearchPage;
+import com.epam.core.MyWebDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class FirstTest {
 
@@ -22,7 +21,7 @@ public class FirstTest {
 
     @BeforeClass
     public void init() {
-        MyWebDriver.get().manage().window().maximize();
+//        MyWebDriver.get().manage().window().maximize();
         MyWebDriver.setUpTimeouts();
         MyWebDriver.get().get(SITE_URL);
     }
@@ -47,15 +46,16 @@ public class FirstTest {
         Assert.assertEquals(actualTitle, EXPECTED_TITLE, "Title of actual page is not as expected:\n");
     }
 
+
     @Test(description = "Check that correct page opens after searching the product")
     public void searchTest() {
-        searchPage = homePage.search(SEARCH_QUERY);
+        searchPage = homePage.doSearch(SEARCH_QUERY);
         Assert.assertEquals(searchPage.getOnlyProductNameTextFromNode(), SEARCH_QUERY, "Find results are not same! \n");
     }
 
     @Test(description = "Clicking on Cart link should forward to Cart page")
     public void verifyThatCartPageOpens() {
-        CartPage cartPage = homePage.cartButtonClick();
+        CartPage cartPage = homePage.openCart();
         String cartTitle = MyWebDriver.get().getTitle();
         String cartTextOnPage = cartPage.getTextFromNode();
         Assert.assertEquals(cartTitle, CART_TITLE, "title is not equals!\n");
@@ -64,8 +64,8 @@ public class FirstTest {
 
     @Test(description = "Change city to Dnipro")
     public void changeToDnipro() {
-        DniproHomePage dniproHomePage = homePage.changeCityToDnipro();
-        String cityName = dniproHomePage.getCityName();
+        homePage = homePage.changeCity();
+        String cityName = homePage.getCityName();
         Assert.assertEquals(cityName, "Днепр");
         Assert.assertEquals(MyWebDriver.get().getCurrentUrl(), "https://dp.vseceni.ua/");
 
@@ -73,7 +73,7 @@ public class FirstTest {
 
     @Test(description = "Login to site with valid user")
     public void loginValidUser(){
-        homePage.loginToSite("jeka.fisun@gmail.com","qwert123");
+        homePage=homePage.loginUser("jeka.fisun@gmail.com","qwert123");
         String userName=homePage.getUserName();
         Assert.assertEquals(userName,"Жека Фисун");
     }

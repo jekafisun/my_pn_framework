@@ -6,8 +6,9 @@ import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
-@Name("Logon form")
-@FindBy(id = "login-form")
+@Name("Login form")
+@FindBy(xpath = ".//div[@id='login-form-container']//form[@id='login-form']")
+//xpath = ".//div[@id='login-form-container']//form[@id='login-form']
 public class LoginForm extends HtmlElement{
     @FindBy(id = "login-form-login")
     private TextInput emailField;
@@ -22,5 +23,6 @@ public class LoginForm extends HtmlElement{
         emailField.sendKeys(email);
         passField.sendKeys(pass);
         loginButton.submit();
+
     }
 }

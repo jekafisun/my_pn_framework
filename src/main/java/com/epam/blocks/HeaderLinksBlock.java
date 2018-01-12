@@ -20,16 +20,50 @@ public class HeaderLinksBlock extends HtmlElement {
     @FindBy(xpath = ".//span[@class='user-info']/a")
     private Link enterAndOptionsLink;
 
-    public void clickShare(){
+    public void clickShare() {
         shareLink.click();
     }
 
-    public void openCart(){
+    public void openCart() {
         cartLink.click();
     }
 
-    public void clickLogonAndOptions(){
+    public void clickLoginAndOptions() {
         enterAndOptionsLink.click();
+    }
+
+    public void shareViaFacebook() {
+        clickShare();
+        shareBlock.shareViaFacebook();
+    }
+
+    public void shareViaTwitter() {
+        clickShare();
+        shareBlock.shareViaTwitter();
+    }
+
+    public void shareViaGoogle() {
+        clickShare();
+        shareBlock.shareViaGoogle();
+    }
+
+    public void login(String email, String pass){
+        clickLoginAndOptions();
+        loginAndSettingsBlock.login(email, pass);
+    }
+
+    public void changeLangUkr(){
+        clickLoginAndOptions();
+        loginAndSettingsBlock.setUkrLang();
+    }
+
+    public void changeLangRus(){
+        clickLoginAndOptions();
+        loginAndSettingsBlock.setRussianLang();
+    }
+
+    public String getUserName(){
+        return enterAndOptionsLink.getText();
     }
 
 }
