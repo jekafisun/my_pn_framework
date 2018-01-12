@@ -21,7 +21,7 @@ public class FirstTest {
 
     @BeforeClass
     public void init() {
-//        MyWebDriver.get().manage().window().maximize();
+        MyWebDriver.get().manage().window().maximize();
         MyWebDriver.setUpTimeouts();
         MyWebDriver.get().get(SITE_URL);
     }
@@ -29,7 +29,7 @@ public class FirstTest {
     @AfterClass
     public void tearDownClass() {
         MyWebDriver.get().manage().deleteAllCookies();
-        MyWebDriver.get().close();
+//        MyWebDriver.get().close();
     }
 
     @BeforeMethod
@@ -73,7 +73,7 @@ public class FirstTest {
 
     @Test(description = "Login to site with valid user")
     public void loginValidUser(){
-        homePage=homePage.loginUser("jeka.fisun@gmail.com","qwert123");
+        homePage.loginUser("jeka.fisun@gmail.com","qwert123");
         String userName=homePage.getUserName();
         Assert.assertEquals(userName,"Жека Фисун");
     }

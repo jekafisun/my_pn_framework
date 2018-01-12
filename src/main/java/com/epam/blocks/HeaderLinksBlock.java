@@ -4,6 +4,7 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
+import ru.yandex.qatools.htmlelements.element.TextBlock;
 
 @Name("Block of links in header")
 @FindBy(className = "links")
@@ -19,6 +20,9 @@ public class HeaderLinksBlock extends HtmlElement {
 
     @FindBy(xpath = ".//span[@class='user-info']/a")
     private Link enterAndOptionsLink;
+
+    @FindBy(className = "user-info")
+    private TextBlock userName;
 
     public void clickShare() {
         shareLink.click();
@@ -47,9 +51,9 @@ public class HeaderLinksBlock extends HtmlElement {
         shareBlock.shareViaGoogle();
     }
 
-    public void login(String email, String pass){
+    public void getLoginForm(){
         clickLoginAndOptions();
-        loginAndSettingsBlock.login(email, pass);
+        loginAndSettingsBlock.getLoginForm();
     }
 
     public void changeLangUkr(){
@@ -63,7 +67,7 @@ public class HeaderLinksBlock extends HtmlElement {
     }
 
     public String getUserName(){
-        return enterAndOptionsLink.getText();
+        return userName.getText();
     }
 
 }
