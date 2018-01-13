@@ -24,7 +24,7 @@ public class HeaderLinksBlock extends HtmlElement {
     @FindBy(className = "user-info")
     private TextBlock userName;
 
-    private void clickShare() {
+    public void clickShare() {
         shareLink.click();
     }
 
@@ -32,7 +32,7 @@ public class HeaderLinksBlock extends HtmlElement {
         cartLink.click();
     }
 
-    private void clickLoginAndOptions() {
+    public void clickLoginAndOptions() {
         enterAndOptionsLink.click();
     }
 
@@ -51,22 +51,22 @@ public class HeaderLinksBlock extends HtmlElement {
         shareBlock.shareViaGoogle();
     }
 
-    public void getLoginForm() {
+    public void getLoginForm(){
         clickLoginAndOptions();
         loginAndSettingsBlock.getLoginForm();
     }
 
-    public void changeLangUkr() {
+    public void changeLangUkr(){
         clickLoginAndOptions();
         loginAndSettingsBlock.setUkrLang();
     }
 
-    public void changeLangRus() {
+    public void changeLangRus(){
         clickLoginAndOptions();
         loginAndSettingsBlock.setRussianLang();
     }
 
-    public String getUserName() {
+    public String getUserName(){
         return userName.getText();
     }
 

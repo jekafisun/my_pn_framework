@@ -22,7 +22,6 @@ public class MyWebDriver {
     public static void setUpTimeouts() {
         WebDriver.Timeouts timeouts = driver.manage().timeouts();
         timeouts.implicitlyWait(10, TimeUnit.SECONDS);
-        timeouts.pageLoadTimeout(10, TimeUnit.SECONDS);
     }
 
     public static WebDriver get() {

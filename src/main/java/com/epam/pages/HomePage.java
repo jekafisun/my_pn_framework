@@ -1,24 +1,20 @@
 package com.epam.pages;
 
-import com.epam.blocks.HeaderCityBlock;
-import com.epam.blocks.HeaderLinksBlock;
-import com.epam.blocks.HeaderSearchBlock;
-import com.epam.blocks.LoginForm;
+import com.epam.blocks.*;
 import com.epam.core.MyWebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
-    private HeaderCityBlock headerCityBlock;
     private HeaderLinksBlock headerLinksBlock;
-    private HeaderSearchBlock headerSearchBlock;
     private LoginForm loginForm;
+    private Header header;
 
     @FindBy(className = "user-info")
     private WebElement userName;
 
     public SearchPage doSearch(String searchQuery) {
-        headerSearchBlock.search(searchQuery);
+        header.search(searchQuery);
         return new SearchPage();
     }
 
@@ -28,7 +24,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage changeCity() {
-        headerCityBlock.changeCity();
+        header.changeCity();
         return new HomePage();
     }
 
@@ -49,7 +45,7 @@ public class HomePage extends BasePage {
     }
 
     public String getCityName() {
-        return headerCityBlock.getCityName();
+        return header.getCityName();
     }
 
     public String getUserName(String text) {

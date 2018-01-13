@@ -5,11 +5,9 @@ import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.Link;
 
-@Name("Logon and settings block that appears after clicking Logon/Settings link")
+@Name("Login and settings block that appears after clicking Logon/Settings link")
 @FindBy(id = "userSettings")
 public class LoginAndSettingsBlock extends HtmlElement{
-//    private LoginForm loginForm;
-
     @FindBy(linkText = "Рус")
     private Link russianLang;
 
@@ -30,9 +28,4 @@ public class LoginAndSettingsBlock extends HtmlElement{
     public void setUkrLang(){
         ukrLang.click();
     }
-
-//    public void login(String email, String pass){
-//        getLoginForm();
-//        loginForm.login(email, pass);
-//    }
 }
