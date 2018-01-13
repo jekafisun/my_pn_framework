@@ -29,7 +29,7 @@ public class FirstTest {
     @AfterClass
     public void tearDownClass() {
         MyWebDriver.get().manage().deleteAllCookies();
-//        MyWebDriver.get().close();
+        MyWebDriver.get().close();
     }
 
     @BeforeMethod
@@ -72,10 +72,12 @@ public class FirstTest {
     }
 
     @Test(description = "Login to site with valid user")
-    public void loginValidUser(){
-        homePage.loginUser("jeka.fisun@gmail.com","qwert123");
-        String userName=homePage.getUserName();
-        Assert.assertEquals(userName,"Жека Фисун");
+    public void loginValidUser() {
+        homePage.loginUser("jeka.fisun@gmail.com", "qwert123");
+//        Thread.sleep(1000);
+        String user = homePage.getUserName("Жека Фисун");
+        Assert.assertEquals(user, "Жека Фисун");
+
     }
 
 //    @Test(description = "Deleting item from Cart by clicking red cross icon")
