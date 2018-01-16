@@ -8,12 +8,12 @@ public class SearchResultsPage extends BasePage {
     @FindBy(xpath = ".//div[@class='breadcrumbs']//li[last()]//span")
     private WebElement productName;
 
-    public String getOnlyProductNameTextFromNode(){
-        String text=productName.getText();
-        for (WebElement child: productName.findElements(By.xpath(".//*"))){
-            text=text.replaceFirst(child.getText(),"");
+    public String getOnlyProductNameTextFromNode() {
+        String text = productName.getText();
+        for (WebElement child : productName.findElements(By.xpath(".//*"))) {
+            text = text.replaceFirst(child.getText(), "");
         }
-        text=text.trim();
+        text = text.trim();
         return text;
     }
 

@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FirstTest {
-
     private static final String SITE_URL = "https://pn.com.ua/";
     private static final String EXPECTED_TITLE = "Все цены Харькова (Прайс Навигатор): " +
             "товары и услуги, магазины в Харькове";
@@ -46,7 +45,6 @@ public class FirstTest {
         Assert.assertEquals(actualTitle, EXPECTED_TITLE, "Title of actual page is not as expected:\n");
     }
 
-
     @Test(description = "Check that correct page opens after searching the product")
     public void searchTest() {
         searchResultsPage = homePage.doSearch(SEARCH_QUERY);
@@ -68,7 +66,6 @@ public class FirstTest {
         String cityName = homePage.getCityName();
         Assert.assertEquals(cityName, "Днепр");
         Assert.assertEquals(MyWebDriver.get().getCurrentUrl(), "https://dp.vseceni.ua/");
-
     }
 
     @Test(description = "Login to site with valid user")
@@ -76,11 +73,5 @@ public class FirstTest {
         homePage.loginUser("jeka.fisun@gmail.com", "qwert123");
         String user = homePage.getUserName("Жека Фисун");
         Assert.assertEquals(user, "Жека Фисун");
-
     }
-
-//    @Test(description = "Deleting item from Cart by clicking red cross icon")
-//    public void verifyThatItemCanBeDeletedFromCart() {
-//        cartPage = homePage.cartButtonClick();
-//    }
 }

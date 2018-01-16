@@ -22,18 +22,18 @@ public class Header extends HtmlElement {
     private Button searchButton;
 
 
-    public void search(String searchQuery){
+    public void search(String searchQuery) {
         searchField.clear();
         searchField.sendKeys(searchQuery);
         searchButton.submit();
     }
 
-    public void changeCity(){
+    public void changeCity() {
         citySelect.click();
         dniproCity.click();
     }
 
-    public String getCityName(){
+    public String getCityName() {
         return citySelect.getText();
     }
 }

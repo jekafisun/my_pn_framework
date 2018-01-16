@@ -7,7 +7,7 @@ import ru.yandex.qatools.htmlelements.element.Link;
 
 @Name("Share block that appears after clicking Share link")
 @FindBy(id = "socnets")
-public class ShareBlock extends HtmlElement{
+public class ShareBlock extends HtmlElement {
     @FindBy(linkText = "Facebook")
     private Link facebook;
 
@@ -17,15 +17,15 @@ public class ShareBlock extends HtmlElement{
     @FindBy(linkText = "Google+")
     private Link google;
 
-    public void shareViaFacebook(){
+    public void shareViaFacebook() {
         facebook.click();
     }
 
-    public void shareViaTwitter(){
+    public void shareViaTwitter() {
         twitter.click();
     }
 
-    public void shareViaGoogle(){
+    public void shareViaGoogle() {
         google.click();
     }
 }
