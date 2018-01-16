@@ -1,5 +1,7 @@
-package com.epam.pages;
+package com.epam.tests;
 
+import com.epam.pages.CategoryPage;
+import com.epam.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

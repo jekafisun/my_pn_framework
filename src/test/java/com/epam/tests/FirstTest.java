@@ -1,6 +1,9 @@
-package com.epam.pages;
+package com.epam.tests;
 
 import com.epam.core.MyWebDriver;
+import com.epam.pages.CartPage;
+import com.epam.pages.HomePage;
+import com.epam.pages.SearchResultsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

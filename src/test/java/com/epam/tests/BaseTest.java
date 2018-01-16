@@ -1,21 +1,21 @@
-package com.epam.pages;
+package com.epam.tests;
 
 import com.epam.core.MyWebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 public abstract class BaseTest {
     private static final String SITE_URL = "https://pn.com.ua/";
 
-    @BeforeClass
+    @BeforeTest
     public void init() {
         MyWebDriver.get().manage().window().maximize();
         MyWebDriver.setUpTimeouts();
         MyWebDriver.get().get(SITE_URL);
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDownClass() {
         MyWebDriver.get().manage().deleteAllCookies();
         MyWebDriver.get().close();
