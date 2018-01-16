@@ -2,40 +2,16 @@ package com.epam.pages;
 
 import com.epam.core.MyWebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class FirstTest {
+public class FirstTest extends BaseTest{
     private static final String SITE_URL = "https://pn.com.ua/";
     private static final String EXPECTED_TITLE = "Все цены Харькова (Прайс Навигатор): " +
             "товары и услуги, магазины в Харькове";
     private static final String SEARCH_QUERY = "Gorenje NRK 6201 GHW";
     private static final String CART_TITLE = "Прайс навигатор. Харьков: Покупки";
     private static final String CART_PAGE_NAME_FOR_CHECK = "Планирование покупок";
-    private HomePage homePage;
-    private SearchResultsPage searchResultsPage;
-    private CartPage cartPage;
-
-    @BeforeClass
-    public void init() {
-        MyWebDriver.get().manage().window().maximize();
-        MyWebDriver.setUpTimeouts();
-        MyWebDriver.get().get(SITE_URL);
-    }
-
-    @AfterClass
-    public void tearDownClass() {
-        MyWebDriver.get().manage().deleteAllCookies();
-        MyWebDriver.get().close();
-    }
-
-    @BeforeMethod
-    public void initMethod() {
-        MyWebDriver.get().navigate().to(SITE_URL);
-        homePage = new HomePage();
-    }
+    private HomePage homePage=new HomePage();
 
     @Test(description = "Check that correct page is opened")
     public void loadPageTest() {
@@ -47,7 +23,7 @@ public class FirstTest {
 
     @Test(description = "Check that correct page opens after searching the product")
     public void searchTest() {
-        searchResultsPage = homePage.doSearch(SEARCH_QUERY);
+        SearchResultsPage searchResultsPage = homePage.doSearch(SEARCH_QUERY);
         Assert.assertEquals(searchResultsPage.getOnlyProductNameTextFromNode(), SEARCH_QUERY, "Find results are not same! \n");
     }
 
