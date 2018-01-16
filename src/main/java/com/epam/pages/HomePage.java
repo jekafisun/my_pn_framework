@@ -28,12 +28,12 @@ public class HomePage extends BasePage {
     @FindBy(xpath = ".//div[@id='column-center']//a[contains(@href,'furniture')]")
     private WebElement furnitureLink;
 
-    public CategoryPage openComputerCategory(){
+    public CategoryPage openComputerCategory() {
         computersLink.click();
         return new CategoryPage();
     }
 
-    public CategoryPage openElectronicsCategory(){
+    public CategoryPage openElectronicsCategory() {
         electronicsLink.click();
         return new CategoryPage();
     }

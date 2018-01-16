@@ -7,14 +7,14 @@ import com.epam.pages.SearchResultsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class FirstTest extends BaseTest{
+public class FirstTest extends BaseTest {
     private static final String SITE_URL = "https://pn.com.ua/";
     private static final String EXPECTED_TITLE = "Все цены Харькова (Прайс Навигатор): " +
             "товары и услуги, магазины в Харькове";
     private static final String SEARCH_QUERY = "Gorenje NRK 6201 GHW";
     private static final String CART_TITLE = "Прайс навигатор. Харьков: Покупки";
     private static final String CART_PAGE_NAME_FOR_CHECK = "Планирование покупок";
-    private HomePage homePage=new HomePage();
+    private HomePage homePage = new HomePage();
 
     @Test(description = "Check that correct page is opened")
     public void loadPageTest() {
