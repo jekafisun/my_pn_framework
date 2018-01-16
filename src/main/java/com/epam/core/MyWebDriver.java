@@ -32,6 +32,4 @@ public class MyWebDriver {
         WebDriverWait wait = new WebDriverWait(driver, 1);
         wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }
-
-
 }

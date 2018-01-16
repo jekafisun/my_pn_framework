@@ -60,8 +60,8 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteFile}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <parallel>tests</parallel>
-                    <threadCount>3</threadCount>
+                    <!--parallel>tests</parallel-->
+                    <!--threadCount>2</threadCount-->
                 </configuration>
             </plugin>
         </plugins>
