@@ -16,7 +16,7 @@ public class FirstTest {
     private static final String CART_TITLE = "Прайс навигатор. Харьков: Покупки";
     private static final String CART_PAGE_NAME_FOR_CHECK = "Планирование покупок";
     private HomePage homePage;
-    private SearchPage searchPage;
+    private SearchResultsPage searchResultsPage;
     private CartPage cartPage;
 
     @BeforeClass
@@ -49,8 +49,8 @@ public class FirstTest {
 
     @Test(description = "Check that correct page opens after searching the product")
     public void searchTest() {
-        searchPage = homePage.doSearch(SEARCH_QUERY);
-        Assert.assertEquals(searchPage.getOnlyProductNameTextFromNode(), SEARCH_QUERY, "Find results are not same! \n");
+        searchResultsPage = homePage.doSearch(SEARCH_QUERY);
+        Assert.assertEquals(searchResultsPage.getOnlyProductNameTextFromNode(), SEARCH_QUERY, "Find results are not same! \n");
     }
 
     @Test(description = "Clicking on Cart link should forward to Cart page")
@@ -74,7 +74,6 @@ public class FirstTest {
     @Test(description = "Login to site with valid user")
     public void loginValidUser() {
         homePage.loginUser("jeka.fisun@gmail.com", "qwert123");
-//        Thread.sleep(1000);
         String user = homePage.getUserName("Жека Фисун");
         Assert.assertEquals(user, "Жека Фисун");
 

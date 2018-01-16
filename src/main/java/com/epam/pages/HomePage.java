@@ -13,9 +13,9 @@ public class HomePage extends BasePage {
     @FindBy(className = "user-info")
     private WebElement userName;
 
-    public SearchPage doSearch(String searchQuery) {
+    public SearchResultsPage doSearch(String searchQuery) {
         header.search(searchQuery);
-        return new SearchPage();
+        return new SearchResultsPage();
     }
 
     public CartPage openCart() {

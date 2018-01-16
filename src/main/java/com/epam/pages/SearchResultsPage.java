@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SearchPage extends BasePage {
+public class SearchResultsPage extends BasePage {
     @FindBy(xpath = ".//div[@class='breadcrumbs']//li[last()]//span")
     private WebElement productName;
 
