@@ -1,2 +1,1 @@
-mvn clean test -DbrowserType=chrome -DsuiteFile="./src/test/resources/testng.xml"
-pause
+mvn clean test -DbrowserType=firefox -DsuiteFile="./src/test/resources/testng.xml"

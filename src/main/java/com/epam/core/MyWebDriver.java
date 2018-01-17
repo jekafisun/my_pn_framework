@@ -3,6 +3,7 @@ package com.epam.core;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,8 +16,14 @@ public class MyWebDriver {
     }
 
     static {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/libs/chromedriver.exe");
-        driver = new ChromeDriver();
+        String browser = System.getProperty("browserType");
+        if ("firefox".equalsIgnoreCase(browser)) {
+            System.setProperty("webdriver.gecko.driver", "src/main/resources/libs/geckodriver.exe");
+            driver = new FirefoxDriver();
+        } else {
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/libs/chromedriver.exe");
+            driver = new ChromeDriver();
+        }
     }
 
     public static void setUpTimeouts() {
@@ -29,7 +36,7 @@ public class MyWebDriver {
     }
 
     public static void waitForTextInElement(WebElement element, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, 1);
+        WebDriverWait wait = new WebDriverWait(driver, 2);
         wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 }
