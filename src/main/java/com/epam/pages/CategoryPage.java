@@ -5,8 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CategoryPage extends BasePage {
-    @FindBy(xpath = ".//div[@class='breadcrumbs']//li[last()]//span")
+    private static final String LAST_BREADCRUMB_XPATH = ".//div[@class='breadcrumbs']//li[last()]//span";
+
+    @FindBy(xpath = LAST_BREADCRUMB_XPATH)
     private WebElement categoryName;
+
+    @FindBy(xpath = LAST_BREADCRUMB_XPATH + ".//*")
+    private WebElement inCity;
+
 
     public String getCategoryName() {
         String text = categoryName.getText();

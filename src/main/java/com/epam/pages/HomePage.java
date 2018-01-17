@@ -1,7 +1,8 @@
 package com.epam.pages;
 
-import com.epam.blocks.*;
-import com.epam.core.MyWebDriver;
+import com.epam.blocks.Header;
+import com.epam.blocks.HeaderLinksBlock;
+import com.epam.blocks.LoginForm;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -73,10 +74,6 @@ public class HomePage extends BasePage {
         return header.getCityName();
     }
 
-    public String getUserName(String text) {
-        MyWebDriver.waitForTextInElement(userName, text);
-        return userName.getText();
-    }
 
     public CategoryPage openAppliancesCategory() {
         appliancesLink.click();

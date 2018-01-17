@@ -23,5 +23,6 @@ public class LoginForm extends HtmlElement{
         emailField.sendKeys(email);
         passField.sendKeys(pass);
         loginButton.submit();
+//        MyWebDriver.waitForTextInElement();
     }
 }
