@@ -4,23 +4,23 @@ import com.epam.core.MyWebDriver;
 import com.epam.pages.CartPage;
 import com.epam.pages.HomePage;
 import com.epam.pages.SearchResultsPage;
+import com.epam.utils.ConfigProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FirstTest extends BaseTest {
-    private static final String SITE_URL = "https://pn.com.ua/";
     private static final String EXPECTED_TITLE = "Все цены Харькова (Прайс Навигатор): " +
             "товары и услуги, магазины в Харькове";
     private static final String SEARCH_QUERY = "Gorenje NRK 6201 GHW";
     private static final String CART_TITLE = "Прайс навигатор. Харьков: Покупки";
     private static final String CART_PAGE_NAME_FOR_CHECK = "Планирование покупок";
+
     private HomePage homePage = new HomePage();
 
     @Test(description = "Check that correct page is opened")
     public void loadPageTest() {
         String pageUrl = MyWebDriver.get().getCurrentUrl();
         String actualTitle = MyWebDriver.get().getTitle();
-        Assert.assertEquals(pageUrl, SITE_URL, "Site URL is not actual!\n");
         Assert.assertEquals(actualTitle, EXPECTED_TITLE, "Title of actual page is not as expected:\n");
     }
 
@@ -44,12 +44,12 @@ public class FirstTest extends BaseTest {
         homePage = homePage.changeCity();
         String cityName = homePage.getCityName();
         Assert.assertEquals(cityName, "Днепр");
-        Assert.assertEquals(MyWebDriver.get().getCurrentUrl(), "https://dp.vseceni.ua/");
+        Assert.assertEquals(MyWebDriver.get().getCurrentUrl(), ConfigProperties.getProperty("dniproUrl"));
     }
 
     @Test(description = "Login to site with valid user")
     public void loginValidUser() {
-        homePage.loginUser("jeka.fisun@gmail.com", "qwert123");
+        homePage.loginUser(ConfigProperties.getProperty("user.email"), ConfigProperties.getProperty("user.pass"));
         String user = homePage.getUserName("Жека Фисун");
         Assert.assertEquals(user, "Жека Фисун");
     }

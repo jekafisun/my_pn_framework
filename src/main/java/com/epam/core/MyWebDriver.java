@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.epam.utils.ConfigProperties.getProperty;
+
 public class MyWebDriver {
     private static WebDriver driver;
 
@@ -18,10 +20,10 @@ public class MyWebDriver {
     static {
         String browser = System.getProperty("browserType");
         if ("firefox".equalsIgnoreCase(browser)) {
-            System.setProperty("webdriver.gecko.driver", "src/main/resources/libs/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", getProperty("geckodriver"));
             driver = new FirefoxDriver();
         } else {
-            System.setProperty("webdriver.chrome.driver", "src/main/resources/libs/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", getProperty("chromedriver"));
             driver = new ChromeDriver();
         }
     }

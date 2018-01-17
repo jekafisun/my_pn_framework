@@ -5,14 +5,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
-public abstract class BaseTest {
-    private static final String SITE_URL = "https://pn.com.ua/";
+import static com.epam.utils.ConfigProperties.getProperty;
 
+public abstract class BaseTest {
     @BeforeTest
     public void init() {
         MyWebDriver.get().manage().window().maximize();
         MyWebDriver.setUpTimeouts();
-        MyWebDriver.get().get(SITE_URL);
+        MyWebDriver.get().get(getProperty("url"));
     }
 
     @AfterTest
@@ -23,6 +23,6 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public void initMethod() {
-        MyWebDriver.get().navigate().to(SITE_URL);
+        MyWebDriver.get().navigate().to(getProperty("url"));
     }
 }
